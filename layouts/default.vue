@@ -1,5 +1,6 @@
 <template>
   <div>
+    <app-navbar/>
     <nuxt/>
     <my-footer/>
   </div>
@@ -7,46 +8,35 @@
 
 <script>
 import MyFooter from '~/components/Footer.vue'
+import AppNavbar from '~/components/app-header/app-navbar.vue'
 
 export default {
   components: {
-    MyFooter
+    MyFooter,
+    'app-navbar': AppNavbar
   }
 }
 </script>
 
-<style>
-.container
-{
-  margin: 0;
-  width: 100%;
-  padding: 100px 0;
-  text-align: center;
-}
+<style lang="sass">
+@import "~bulma/sass/utilities/initial-variables"
 
-.button, .button:visited
-{
-  display: inline-block;
-  color: black;
-  letter-spacing: 1px;
-  background-color: #fff;
-  border: 2px solid #000;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 15px 45px;
-}
+$primary:    #3386ff !default
 
-.button:hover, .button:focus
-{
-  color: #fff;
-  background-color: #000;
-}
+@import "~bulma/bulma"
 
-.title
-{
-  color: #000;
-  font-weight: 300;
-  font-size: 2.5em;
-  margin: 0;
-}
+.button.is-white
+  color: #6c6c6c
+.button.is-white:hover, .button.is-white.is-hovered
+  color: #3386ff
+
+.main-container
+  overflow: hidden
+
+.has-margin-5
+  margin-top: 5em
+
+.has-margin-3
+  margin-top: 3em
+
 </style>

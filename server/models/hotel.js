@@ -13,7 +13,12 @@ const HotelSchema = new Schema ({
   },
   website: {
     type: String
+  },
+  featured: {
+    type: Boolean,
+    default: false
   }
+  // TODO Add geolocation
 })
 
 const Hotel = mongoose.model('hotel', HotelSchema)
