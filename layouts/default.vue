@@ -22,6 +22,7 @@ export default {
 @import "~bulma/sass/utilities/initial-variables"
 
 $primary:    #3386ff !default
+$grey-dark: #6c6c6c !default
 
 @import "~bulma/bulma"
 
