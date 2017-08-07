@@ -9,35 +9,35 @@
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
-            <input class="input" type="text" placeholder="name">
+            <input class="input" type="text" placeholder="name" v-model="user.name">
           </div>
         </div>
         <div class="field">
           <label class="label">Username</label>
           <div class="control">
-            <input class="input" type="text" placeholder="username">
+            <input class="input" type="text" placeholder="username" v-model="user.username">
           </div>
         </div>
         <div class="field">
           <label class="label">Email</label>
           <div class="control">
-            <input class="input" type="text" placeholder="your email">
+            <input class="input" type="text" placeholder="your email" v-model="user.email">
           </div>
         </div>
         <div class="field">
           <label class="label">Password</label>
           <div class="control">
-            <input class="input" type="text" placeholder="*******">
+            <input class="input" type="text" placeholder="*******" v-model="user.password">
           </div>
         </div>
         <div class="field">
           <label class="label">Confirm Password</label>
           <div class="control">
-            <input class="input" type="text" placeholder="*******">
+            <input class="input" type="text" placeholder="*******" v-model="user.password2">
           </div>
         </div>
         <div class="control">
-        <button class="button is-primary is-outlined">Submit</button>
+        <button class="button is-primary is-outlined" @click.prevent="post">Submit</button>
       </div>
       </div>
       <div class="button is-fullwidth is-primary is-inverted" @click = "$emit('email')">
@@ -54,9 +54,27 @@
 </template>
 
 <script>
+import axios from '~/plugins/axios'
+
 export default {
   name: 'LoginModalRegister',
-  components: {
+  data () {
+    return {
+      user: {
+        name: '',
+        username: '',
+        email: '',
+        password: '',
+        password2: ''
+      }
+    }
+  },
+  methods: {
+    post: () => {
+      axios.post('/users', this.user).then((data) => {
+        console.log(data)
+      })
+    }
   }
 }
 </script>
